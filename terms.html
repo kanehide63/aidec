@@ -1,10 +1,44 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>利用規約 | AI360ラボ</title><link rel="stylesheet" href="style.css"></head><body>
-<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><img src="logo.png" class="brand-logo"><span>AI360ラボ</span></a></div></header>
-<main class="section"><div class="container narrow"><p class="section-label">Terms</p><h1>利用規約</h1>
-<p>本サイトをご利用いただく前に、本規約をご確認ください。</p>
-<h2>1. サービスについて</h2><p>掲載内容は予告なく変更する場合があります。</p>
-<h2>2. 禁止事項</h2><p>法令違反、公序良俗に反する行為、当事業の運営を妨げる行為を禁止します。</p>
-<h2>3. 免責事項</h2><p>掲載情報の正確性に努めますが、内容を保証するものではありません。</p>
-<h2>4. 規約変更</h2><p>必要に応じて本規約を変更する場合があります。</p>
-</div></main>
-<footer class="site-footer"><div class="container footer-inner"><p>© AI360ラボ</p></div></footer><script src="script.js"></script></body></html>
+const header = document.querySelector('.site-header');
+const menuButton = document.querySelector('.menu-button');
+const siteNav = document.querySelector('.site-nav');
+const year = document.getElementById('year');
+
+if (year) year.textContent = new Date().getFullYear();
+
+const updateHeader = () => {
+  if (header) header.classList.toggle('scrolled', window.scrollY > 8);
+};
+updateHeader();
+window.addEventListener('scroll', updateHeader, { passive: true });
+
+if (menuButton && siteNav) {
+  menuButton.addEventListener('click', () => {
+    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', String(!isOpen));
+    menuButton.setAttribute('aria-label', isOpen ? 'メニューを開く' : 'メニューを閉じる');
+    siteNav.classList.toggle('open', !isOpen);
+  });
+
+  siteNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'メニューを開く');
+      siteNav.classList.remove('open');
+    });
+  });
+}
+
+const revealItems = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
+}
