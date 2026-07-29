@@ -88,3 +88,13 @@
   .mobile-only{display:block}
   .form-back-link{font-size:.78rem}
 }
+
+/* Final brand and contact details */
+.service-symbol{width:116px;height:116px;margin:0 0 20px;object-fit:contain;border-radius:18px}
+.contact-inner>p:not(.section-label){max-width:950px}
+.contact-options{grid-template-columns:1.25fr repeat(3,1fr)}
+.contact-option-address strong{line-height:1.65}
+.footer-contact{display:flex;flex-direction:column;gap:6px;max-width:320px;color:rgba(255,255,255,.66);font-size:.82rem;font-style:normal}
+.footer-contact a:hover{color:var(--white)}
+@media(max-width:980px){.contact-options{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.contact-options{grid-template-columns:1fr}.service-symbol{width:96px;height:96px}}
