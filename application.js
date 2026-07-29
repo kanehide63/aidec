@@ -81,23 +81,30 @@
     submitError.textContent = '';
     submitButton.disabled = true;
     submitButton.textContent = '送信しています…';
-    const payload = new FormData();
-    fields.forEach(field => payload.append(field.name, field.value.trim()));
-    payload.append('プライバシーポリシーへの同意', '同意する');
-    payload.append('_subject', '【AIDEC】AI企業診断360 無料診断のお申し込み');
-    payload.append('_template', 'table');
-    payload.append('_captcha', 'false');
-    payload.append('_replyto', document.getElementById('email').value.trim());
+    const payload = {};
+    fields.forEach(field => { payload[field.name] = field.value.trim(); });
+    payload.email = document.getElementById('email').value.trim();
+    payload['プライバシーポリシーへの同意'] = '同意する';
+    payload._subject = '【AIDEC】AI企業診断360 無料診断のお申し込み';
+    payload._template = 'table';
+    payload._captcha = 'false';
     try {
       const response = await fetch('https://formsubmit.co/ajax/info@ai-dec.jp', {
-        method: 'POST', headers: { Accept: 'application/json' }, body: payload
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(payload)
       });
       if (!response.ok) throw new Error();
       const result = await response.json();
-      if (result.success !== 'true' && result.success !== true) throw new Error();
+      if (result.success !== 'true' && result.success !== true) {
+        throw new Error(result.message || '送信に失敗しました');
+      }
       form.reset(); showStep('complete');
     } catch {
-      submitError.textContent = '送信できませんでした。通信環境をご確認のうえ、もう一度お試しいただくか、info@ai-dec.jp までご連絡ください。';
+      submitError.textContent = '送信できませんでした。初回設定の場合は、info@ai-dec.jp に届いているFormSubmitの確認メールを開き、有効化してからもう一度お試しください。';
       submitButton.disabled = false;
       submitButton.textContent = 'この内容で申し込む';
     }
