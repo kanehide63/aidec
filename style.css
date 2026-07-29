@@ -34,7 +34,7 @@
 .form-panel{padding:44px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);box-shadow:0 18px 56px rgba(15,39,66,.08)}
 .form-panel[hidden]{display:none}
 .form-panel-heading{margin-bottom:34px}
-.form-panel-heading h2,.completion-panel h2{margin:0;color:var(--navy);font-size:clamp(1.65rem,3vw,2.3rem)}
+.form-panel-heading h2,.completion-panel h1,.completion-panel h2{margin:0;color:var(--navy);font-size:clamp(1.65rem,3vw,2.3rem)}
 .form-panel-heading>p:last-child{margin:10px 0 0;color:var(--muted);font-size:.9rem}
 .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 22px}
 .form-field-wide{grid-column:1/-1}

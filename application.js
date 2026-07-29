@@ -76,37 +76,9 @@
     buildConfirmation(); showStep('confirm');
   });
   backToInput.addEventListener('click', () => showStep('input'));
-  form.addEventListener('submit', async event => {
-    event.preventDefault();
+  form.addEventListener('submit', () => {
     submitError.textContent = '';
     submitButton.disabled = true;
     submitButton.textContent = '送信しています…';
-    const payload = {};
-    fields.forEach(field => { payload[field.name] = field.value.trim(); });
-    payload.email = document.getElementById('email').value.trim();
-    payload['プライバシーポリシーへの同意'] = '同意する';
-    payload._subject = '【AIDEC】AI企業診断360 無料診断のお申し込み';
-    payload._template = 'table';
-    payload._captcha = 'false';
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/info@ai-dec.jp', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-      if (!response.ok) throw new Error();
-      const result = await response.json();
-      if (result.success !== 'true' && result.success !== true) {
-        throw new Error(result.message || '送信に失敗しました');
-      }
-      form.reset(); showStep('complete');
-    } catch {
-      submitError.textContent = '送信できませんでした。初回設定の場合は、info@ai-dec.jp に届いているFormSubmitの確認メールを開き、有効化してからもう一度お試しください。';
-      submitButton.disabled = false;
-      submitButton.textContent = 'この内容で申し込む';
-    }
   });
 })();

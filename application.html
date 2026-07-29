@@ -42,7 +42,11 @@
           <p>お申し込み後、公開情報をもとにStep1の診断準備を開始します。Step3（有料）は、ご希望いただいた場合のみご案内します。</p>
         </div>
 
-        <form id="diagnosis-form" novalidate>
+        <form id="diagnosis-form" action="https://formsubmit.co/info@ai-dec.jp" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="【AIDEC】AI企業診断360 無料診断のお申し込み">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://kanehide63.github.io/aidec/complete.html">
+          <input type="hidden" name="_autoresponse" value="このたびは、AIDEC「AI企業診断360」の無料診断へお申し込みいただき、誠にありがとうございます。お申し込み内容を受け付けました。内容を確認のうえ、2～3営業日以内に担当者よりご連絡いたします。※このメールは自動送信されています。">
           <section class="form-panel" data-step="input" aria-labelledby="input-title">
             <div class="form-panel-heading">
               <p class="section-label">Step 1</p>
@@ -62,7 +66,7 @@
               </div>
               <div class="form-field">
                 <label for="email">メールアドレス <span class="required-mark">必須</span></label>
-                <input id="email" name="メールアドレス" type="email" inputmode="email" autocomplete="email" required>
+                <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required>
                 <p class="field-error" id="email-error"></p>
               </div>
               <div class="form-field">
@@ -70,8 +74,8 @@
                 <input id="phone" name="電話番号" type="tel" inputmode="tel" autocomplete="tel">
               </div>
               <div class="form-field">
-                <label for="website">ホームページURL <span class="required-mark">必須</span></label>
-                <input id="website" name="ホームページURL" type="url" inputmode="url" placeholder="https://example.com" required>
+                <label for="website">ホームページURL <span class="optional-mark">任意</span></label>
+                <input id="website" name="ホームページURL" type="url" inputmode="url" placeholder="https://example.com">
                 <p class="field-error" id="website-error"></p>
               </div>
               <div class="form-field form-field-wide">
