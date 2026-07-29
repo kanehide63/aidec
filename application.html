@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f2742">
+  <meta name="description" content="AIDECのAI企業診断360（Step1・Step2無料）のお申し込みページです。">
+  <title>無料診断のお申し込み｜AIDEC</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="stylesheet" href="style.css?v=2.1">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="AIDEC トップへ">
+        <img src="logo.png" alt="AIDEC ブランドシンボル" class="brand-logo">
+        <span class="brand-copy"><strong>AIDEC</strong><small>AI-Driven Enterprise Compass &amp; Consulting</small></span>
+      </a>
+      <a class="form-back-link" href="index.html">ホームへ戻る</a>
+    </div>
+  </header>
+
+  <main id="main" class="application-page">
+    <section class="application-hero">
+      <div class="container application-heading">
+        <p class="section-label">Free Diagnosis</p>
+        <h1>AI企業診断360<br class="mobile-only"> 無料診断のお申し込み</h1>
+        <p>必要事項をご入力ください。内容を確認後、2～3営業日以内にご連絡いたします。</p>
+      </div>
+    </section>
+
+    <section class="application-section">
+      <div class="container form-shell">
+        <ol class="form-progress" aria-label="お申し込みの進行状況">
+          <li class="is-active" data-progress="input"><span>1</span>入力</li>
+          <li data-progress="confirm"><span>2</span>確認</li>
+          <li data-progress="complete"><span>3</span>完了</li>
+        </ol>
+        <div class="form-notice">
+          <strong>Step1・Step2は無料です</strong>
+          <p>お申し込み後、公開情報をもとにStep1の診断準備を開始します。Step3（有料）は、ご希望いただいた場合のみご案内します。</p>
+        </div>
+
+        <form id="diagnosis-form" novalidate>
+          <section class="form-panel" data-step="input" aria-labelledby="input-title">
+            <div class="form-panel-heading">
+              <p class="section-label">Step 1</p>
+              <h2 id="input-title">お申し込み情報の入力</h2>
+              <p><span class="required-mark">必須</span>は必ずご入力ください。</p>
+            </div>
+            <div class="form-grid">
+              <div class="form-field form-field-wide">
+                <label for="company">会社名・屋号 <span class="required-mark">必須</span></label>
+                <input id="company" name="会社名・屋号" type="text" autocomplete="organization" required>
+                <p class="field-error" id="company-error"></p>
+              </div>
+              <div class="form-field">
+                <label for="name">ご担当者名 <span class="required-mark">必須</span></label>
+                <input id="name" name="ご担当者名" type="text" autocomplete="name" required>
+                <p class="field-error" id="name-error"></p>
+              </div>
+              <div class="form-field">
+                <label for="email">メールアドレス <span class="required-mark">必須</span></label>
+                <input id="email" name="メールアドレス" type="email" inputmode="email" autocomplete="email" required>
+                <p class="field-error" id="email-error"></p>
+              </div>
+              <div class="form-field">
+                <label for="phone">電話番号 <span class="optional-mark">任意</span></label>
+                <input id="phone" name="電話番号" type="tel" inputmode="tel" autocomplete="tel">
+              </div>
+              <div class="form-field">
+                <label for="website">ホームページURL <span class="required-mark">必須</span></label>
+                <input id="website" name="ホームページURL" type="url" inputmode="url" placeholder="https://example.com" required>
+                <p class="field-error" id="website-error"></p>
+              </div>
+              <div class="form-field form-field-wide">
+                <label for="google-profile">GoogleビジネスプロフィールURL <span class="optional-mark">任意</span></label>
+                <input id="google-profile" name="GoogleビジネスプロフィールURL" type="url" inputmode="url" placeholder="https://maps.google.com/…">
+                <p class="field-error" id="google-profile-error"></p>
+              </div>
+              <div class="form-field form-field-wide">
+                <label for="message">ご相談内容 <span class="required-mark">必須</span></label>
+                <textarea id="message" name="ご相談内容" rows="7" placeholder="現在お困りのことや、診断で確認したいことをご記入ください。" required></textarea>
+                <p class="field-error" id="message-error"></p>
+              </div>
+            </div>
+            <label class="consent-field">
+              <input id="privacy-consent" name="プライバシーポリシーへの同意" type="checkbox" value="同意する" required>
+              <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>を確認し、個人情報の取り扱いに同意します。 <span class="required-mark">必須</span></span>
+            </label>
+            <p class="field-error consent-error" id="privacy-consent-error"></p>
+            <div class="form-actions form-actions-end">
+              <button class="button button-primary" type="button" id="to-confirm">入力内容を確認する</button>
+            </div>
+          </section>
+
+          <section class="form-panel" data-step="confirm" aria-labelledby="confirm-title" hidden>
+            <div class="form-panel-heading">
+              <p class="section-label">Step 2</p>
+              <h2 id="confirm-title">入力内容の確認</h2>
+              <p>内容をご確認のうえ、「この内容で申し込む」を押してください。</p>
+            </div>
+            <dl class="confirmation-list" id="confirmation-list"></dl>
+            <p class="submit-error" id="submit-error" role="alert"></p>
+            <div class="form-actions">
+              <button class="button button-secondary form-secondary" type="button" id="back-to-input">入力内容を修正する</button>
+              <button class="button button-primary" type="submit" id="submit-application">この内容で申し込む</button>
+            </div>
+          </section>
+
+          <section class="form-panel completion-panel" data-step="complete" aria-labelledby="complete-title" hidden>
+            <div class="completion-icon" aria-hidden="true">✓</div>
+            <p class="section-label">Completed</p>
+            <h2 id="complete-title">お申し込みありがとうございます。</h2>
+            <p class="completion-message">内容を確認のうえ、<strong>2～3営業日以内にご連絡いたします。</strong></p>
+            <p>ご入力いただいたメールアドレス宛に、AIDECよりご連絡いたします。</p>
+            <a class="button button-primary" href="index.html">ホームへ戻る</a>
+          </section>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer form-footer">
+    <div class="container footer-bottom"><p>© <span id="year"></span> AIDEC</p><a href="privacy.html">プライバシーポリシー</a></div>
+  </footer>
+  <script src="script.js?v=2.1"></script>
+  <script src="application.js?v=1.0"></script>
+</body>
+</html>
