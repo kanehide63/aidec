@@ -1,4 +1,40 @@
 (() => {
+  const heroTitle = document.querySelector('.hero-title-animated');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroTitle && !reduceMotion) {
+    const accessibleText = heroTitle.innerText.replace(/\n+/g, ' ');
+    let characterIndex = 0;
+    [...heroTitle.childNodes].forEach(node => {
+      if (node.nodeType !== Node.TEXT_NODE) return;
+      const fragment = document.createDocumentFragment();
+      const characters = [...node.textContent];
+      const createCharacter = character => {
+        const span = document.createElement('span');
+        span.className = 'hero-title-char';
+        span.setAttribute('aria-hidden', 'true');
+        span.style.setProperty('--char-delay', `${450 + characterIndex * 55}ms`);
+        span.textContent = character;
+        characterIndex += 1;
+        return span;
+      };
+      characters.forEach((character, index) => {
+        if (/[、。！？]/.test(characters[index + 1] || '')) {
+          const unit = document.createElement('span');
+          unit.className = 'hero-title-unit';
+          unit.appendChild(createCharacter(character));
+          unit.appendChild(createCharacter(characters[index + 1]));
+          fragment.appendChild(unit);
+          characters[index + 1] = '';
+        } else if (character) {
+          fragment.appendChild(createCharacter(character));
+        }
+      });
+      node.replaceWith(fragment);
+    });
+    heroTitle.setAttribute('aria-label', accessibleText);
+    heroTitle.classList.add('is-typing');
+  }
+
   const menuButton = document.querySelector('.menu-button');
   const nav = document.querySelector('.site-nav');
   const header = document.querySelector('.site-header');
