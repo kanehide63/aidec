@@ -8,7 +8,7 @@
   const backToInput = document.getElementById('back-to-input');
   const submitButton = document.getElementById('submit-application');
   const submitError = document.getElementById('submit-error');
-  const fields = [...form.querySelectorAll('input:not([type="checkbox"]), textarea')];
+  const fields = [...form.querySelectorAll('input:not([type="checkbox"]):not([type="hidden"]), textarea')];
   const consent = document.getElementById('privacy-consent');
   const labels = {
     company: '会社名・屋号', name: 'ご担当者名', email: 'メールアドレス',
@@ -74,9 +74,11 @@
   toConfirm.addEventListener('click', () => {
     if (!validate()) return;
     buildConfirmation(); showStep('confirm');
+    window.aidecTrack?.('application_confirm_view');
   });
   backToInput.addEventListener('click', () => showStep('input'));
   form.addEventListener('submit', () => {
+    window.aidecTrack?.('application_submit_attempt');
     submitError.textContent = '';
     submitButton.disabled = true;
     submitButton.textContent = '送信しています…';

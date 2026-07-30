@@ -1,4 +1,33 @@
 (() => {
+  window.dataLayer = window.dataLayer || [];
+  const analyticsId = document.querySelector('meta[name="aidec-google-analytics-id"]')?.content.trim();
+  if (/^G-[A-Z0-9]+$/i.test(analyticsId || '')) {
+    const analyticsScript = document.createElement('script');
+    analyticsScript.async = true;
+    analyticsScript.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(analyticsId)}`;
+    document.head.appendChild(analyticsScript);
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', analyticsId, { anonymize_ip: true });
+  }
+  window.aidecTrack = (eventName, parameters = {}) => {
+    if (typeof window.gtag === 'function') window.gtag('event', eventName, parameters);
+    else window.dataLayer.push({ event: eventName, ...parameters });
+  };
+  document.querySelectorAll('a[href$="application.html"]').forEach(link => {
+    link.addEventListener('click', () => window.aidecTrack('free_diagnosis_click', {
+      link_text: link.textContent.trim(),
+      link_location: link.closest('header') ? 'header' : link.closest('#service') ? 'service' : link.closest('#contact') ? 'contact' : 'other'
+    }));
+  });
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) window.aidecTrack('faq_open', { question: item.querySelector('summary')?.textContent.trim() || '' });
+    });
+  });
+  if (document.body.dataset.page === 'application') window.aidecTrack('application_form_view');
+  if (document.body.dataset.page === 'application-complete') window.aidecTrack('application_submit_success');
+
   const heroTitle = document.querySelector('.hero-title-animated');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (heroTitle && !reduceMotion) {
