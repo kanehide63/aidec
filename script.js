@@ -67,6 +67,7 @@
   const menuButton = document.querySelector('.menu-button');
   const nav = document.querySelector('.site-nav');
   const header = document.querySelector('.site-header');
+  const progressBar = document.querySelector('.scroll-progress span');
   if (menuButton && nav) {
     menuButton.addEventListener('click', () => {
       const open = menuButton.getAttribute('aria-expanded') === 'true';
@@ -80,7 +81,14 @@
       nav.classList.remove('open');
     }));
   }
-  const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 8);
+  const onScroll = () => {
+    header?.classList.toggle('scrolled', window.scrollY > 8);
+    if (progressBar) {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+      progressBar.style.transform = `scaleX(${progress})`;
+    }
+  };
   onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
   const year = document.getElementById('year'); if (year) year.textContent = new Date().getFullYear();
   const items = document.querySelectorAll('.reveal');
