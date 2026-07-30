@@ -109,3 +109,18 @@
 @media(max-width:780px){.diagnosis-flow{grid-template-columns:1fr}.diagnosis-flow div:not(:last-child):after{right:auto;left:39px;top:auto;bottom:-15px;width:1px;height:15px}}
 @media(max-width:980px){.contact-options{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:680px){.contact-options{grid-template-columns:1fr}.service-symbol{width:96px;height:96px}}
+
+/* Hero brand symbol animation */
+.hero-brand-symbol{position:relative;display:block;width:154px;height:154px;isolation:isolate;transform-origin:50% 58%}
+.symbol-card .hero-brand-symbol img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;margin:0}
+.hero-brand-a{opacity:0;transform:translateY(14px);animation:hero-brand-a-arrive .72s cubic-bezier(.22,.78,.28,1) .18s forwards}
+.hero-brand-dot{opacity:0;transform:translate(-12px,8px) scale(.72);transform-origin:69.5% 61.5%;animation:hero-brand-dot-arrive .62s cubic-bezier(.2,.9,.3,1.18) .72s forwards;transition:transform .32s cubic-bezier(.2,.8,.3,1)}
+.hero-brand-symbol:after{content:"";position:absolute;inset:20% 18%;z-index:2;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.82) 49%,transparent 63%);transform:translateX(-165%) skewX(-12deg);opacity:0;pointer-events:none;animation:hero-brand-light-pass .78s ease-out 1.28s forwards}
+.hero-brand-symbol{animation:hero-brand-breathe .72s ease-in-out 1.92s 1}
+.symbol-card:hover .hero-brand-dot{transform:translate(0,-3px) scale(1.06)}
+@keyframes hero-brand-a-arrive{to{opacity:1;transform:translateY(0)}}
+@keyframes hero-brand-dot-arrive{0%{opacity:0;transform:translate(-12px,8px) scale(.72)}72%{opacity:1;transform:translate(2px,-1px) scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes hero-brand-light-pass{0%{opacity:0;transform:translateX(-165%) skewX(-12deg)}20%{opacity:.72}100%{opacity:0;transform:translateX(165%) skewX(-12deg)}}
+@keyframes hero-brand-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+@media(max-width:680px){.hero-brand-symbol{width:120px;height:120px}}
+@media(prefers-reduced-motion:reduce){.hero-brand-a,.hero-brand-dot{opacity:1;transform:none;animation:none!important}.hero-brand-symbol,.hero-brand-symbol:after{animation:none!important}.hero-brand-symbol:after{display:none}.symbol-card:hover .hero-brand-dot{transform:none}}
