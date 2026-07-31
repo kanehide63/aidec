@@ -64,6 +64,42 @@
     heroTitle.classList.add('is-typing');
   }
 
+  const characterRevealItems = document.querySelectorAll('.character-reveal');
+  characterRevealItems.forEach(item => {
+    if (reduceMotion) return;
+    const accessibleText = item.innerText.replace(/\s+/g, ' ').trim();
+    const speed = Number(item.dataset.characterSpeed) || 45;
+    const textNodes = [];
+    const walker = document.createTreeWalker(item, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+    let characterIndex = 0;
+    textNodes.forEach(node => {
+      const fragment = document.createDocumentFragment();
+      [...node.textContent].forEach(character => {
+        const span = document.createElement('span');
+        span.className = 'character-reveal-char';
+        span.setAttribute('aria-hidden', 'true');
+        span.style.setProperty('--character-delay', `${120 + characterIndex * speed}ms`);
+        span.textContent = character;
+        fragment.appendChild(span);
+        characterIndex += 1;
+      });
+      node.replaceWith(fragment);
+    });
+    item.setAttribute('aria-label', accessibleText);
+  });
+  if (!reduceMotion && characterRevealItems.length && 'IntersectionObserver' in window) {
+    const characterObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-character-revealing');
+        characterObserver.unobserve(entry.target);
+      }
+    }), { threshold: .45 });
+    characterRevealItems.forEach(item => characterObserver.observe(item));
+  } else {
+    characterRevealItems.forEach(item => item.classList.add('is-character-revealing'));
+  }
+
   const messageMark = document.querySelector('.message-mark');
   const messageDot = messageMark?.querySelector('.message-symbol-dot');
   const playMessageSymbol = () => {

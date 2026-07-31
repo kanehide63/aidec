@@ -143,3 +143,13 @@
 @keyframes message-dot-ripple{0%{opacity:0;transform:translate(-50%,-50%) scale(.6)}28%{opacity:.85}100%{opacity:0;transform:translate(-50%,-50%) scale(3)}}
 @media(max-width:680px){.message-symbol-stage{width:150px;height:150px}.message-mark.is-symbol-settled:after{left:calc(50% + 29px);top:calc(50% + 18px);width:15px;height:15px}}
 @media(prefers-reduced-motion:reduce){.message-symbol-dot{transform:translate(-50%,-50%)!important}.message-mark.is-symbol-settled .message-symbol-dot,.message-mark.is-symbol-settled:after{animation:none!important}}
+
+/* Single-line copy and character reveals */
+.free-scope-note{width:100%;max-width:none;box-sizing:border-box;white-space:nowrap;font-size:.82rem}
+.philosophy-intro{max-width:none}
+.philosophy-title-animated{white-space:nowrap;font-size:clamp(2rem,3vw,3rem)!important}
+.character-reveal .character-reveal-char{display:inline-block;white-space:pre;opacity:0;transform:translateY(.14em)}
+.character-reveal.is-character-revealing .character-reveal-char{animation:character-line-reveal .32s cubic-bezier(.22,.61,.36,1) var(--character-delay) forwards}
+@keyframes character-line-reveal{to{opacity:1;transform:translateY(0)}}
+@media(max-width:680px){.free-scope-note{white-space:normal;font-size:.84rem}.philosophy-title-animated{white-space:normal;font-size:clamp(2rem,10vw,3rem)!important}}
+@media(prefers-reduced-motion:reduce){.character-reveal .character-reveal-char{opacity:1;transform:none;animation:none!important}}
