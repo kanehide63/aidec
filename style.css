@@ -196,3 +196,23 @@
 @media(prefers-reduced-motion:reduce){
   .service-accordion-icon,.service-accordion-panel{transition:none}
 }
+
+/* Brand concept: Our Compass */
+.compass-section{position:relative;overflow:hidden;background:var(--white);border-bottom:1px solid var(--line)}
+.compass-section:before{content:"";position:absolute;left:0;top:112px;width:6px;height:112px;border-radius:0 6px 6px 0;background:linear-gradient(180deg,var(--navy),var(--blue))}
+.compass-layout{display:grid;grid-template-columns:1.08fr .92fr;gap:88px;align-items:start}
+.compass-heading{max-width:670px}
+.compass-title{font-size:clamp(2.55rem,5vw,4.55rem)!important;line-height:1.3!important;letter-spacing:-.025em}
+.compass-prose{max-width:520px;padding-top:44px;color:var(--muted);font-size:1.02rem}
+.compass-prose p{margin:0 0 1.35em}
+.compass-prose p:last-child{margin-bottom:0}
+.compass-prose .compass-lead{color:var(--navy);font-size:1.12rem;font-weight:850}
+@media(max-width:980px){
+  .compass-layout{grid-template-columns:1fr;gap:38px}
+  .compass-prose{max-width:760px;padding-top:0}
+}
+@media(max-width:680px){
+  .compass-section:before{top:72px;height:84px;width:4px}
+  .compass-title{font-size:clamp(2.15rem,10vw,3.25rem)!important;line-height:1.34!important}
+  .compass-prose{font-size:.98rem}
+}
