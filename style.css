@@ -153,3 +153,8 @@
 @keyframes character-line-reveal{to{opacity:1;transform:translateY(0)}}
 @media(max-width:680px){.free-scope-note{white-space:normal;font-size:.84rem}.philosophy-title-animated{white-space:normal;font-size:clamp(2rem,10vw,3rem)!important}}
 @media(prefers-reduced-motion:reduce){.character-reveal .character-reveal-char{opacity:1;transform:none;animation:none!important}}
+
+/* Service introduction single-line layout */
+.service-intro{max-width:none}
+.service-description{white-space:nowrap;font-size:.96rem}
+@media(max-width:980px){.service-description{white-space:normal;font-size:1rem}}
