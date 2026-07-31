@@ -25,6 +25,25 @@
       if (item.open) window.aidecTrack('faq_open', { question: item.querySelector('summary')?.textContent.trim() || '' });
     });
   });
+  document.querySelectorAll('.service-accordion').forEach(accordion => {
+    const button = accordion.querySelector('.service-accordion-button');
+    const panel = accordion.querySelector('.service-accordion-panel');
+    if (!button || !panel) return;
+    button.addEventListener('click', () => {
+      const willOpen = button.getAttribute('aria-expanded') !== 'true';
+      button.setAttribute('aria-expanded', String(willOpen));
+      panel.setAttribute('aria-hidden', String(!willOpen));
+      panel.inert = !willOpen;
+      panel.classList.toggle('is-open', willOpen);
+      panel.style.maxHeight = willOpen ? `${panel.scrollHeight}px` : '0px';
+      if (willOpen) window.aidecTrack('service_details_open', {
+        service: panel.id === 'step3-details' ? 'AI企業診断360 Step3' : 'AI360 Webスタータープラン'
+      });
+    });
+    window.addEventListener('resize', () => {
+      if (button.getAttribute('aria-expanded') === 'true') panel.style.maxHeight = `${panel.scrollHeight}px`;
+    });
+  });
   if (document.body.dataset.page === 'application') window.aidecTrack('application_form_view');
   if (document.body.dataset.page === 'application-complete') window.aidecTrack('application_submit_success');
 

@@ -158,3 +158,41 @@
 .service-intro{max-width:none}
 .service-description{white-space:nowrap;font-size:.96rem}
 @media(max-width:980px){.service-description{white-space:normal;font-size:1rem}}
+
+/* Service pricing accordions */
+.service-accordion{margin-top:24px;border-top:1px solid var(--line)}
+.service-accordion-button{display:flex;width:100%;align-items:center;gap:9px;padding:18px 0 0;border:0;background:transparent;color:var(--navy);font:inherit;font-size:.9rem;font-weight:850;text-align:left;cursor:pointer}
+.service-accordion-button:hover,.service-accordion-button:focus-visible{color:var(--blue)}
+.service-accordion-button:focus-visible{outline:2px solid var(--blue);outline-offset:5px;border-radius:4px}
+.service-accordion-icon{display:inline-block;color:var(--blue);transition:transform .32s cubic-bezier(.22,.61,.36,1)}
+.service-accordion-button[aria-expanded="true"] .service-accordion-icon{transform:rotate(180deg)}
+.service-accordion-panel{max-height:0;overflow:hidden;opacity:0;transition:max-height .48s cubic-bezier(.22,.61,.36,1),opacity .28s ease}
+.service-accordion-panel.is-open{opacity:1}
+.service-accordion-content{padding:20px 0 2px}
+.service-detail-list{display:grid;gap:18px;margin:0}
+.service-detail-list>div{display:grid;gap:8px}
+.service-detail-list dt{color:var(--navy);font-size:.78rem;font-weight:900;letter-spacing:.06em}
+.service-detail-list dd{margin:0;color:var(--muted)}
+.service-detail-list ul{margin:0;padding-left:1.25em}
+.service-detail-list li+li{margin-top:3px}
+.service-price{color:var(--navy)!important;font-size:1.22rem;font-weight:900}
+.service-price-table{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px}
+.service-price-table strong{color:var(--navy);font-weight:850;text-align:right;white-space:nowrap}
+.service-detail-note{margin:18px 0 0!important;color:var(--muted)!important;font-size:.76rem!important;line-height:1.65}
+.service-detail-contact{margin:14px 0 0!important;color:var(--navy)!important;font-size:.84rem!important;font-weight:750}
+.service-detail-contact a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.web-starter-card{margin-top:54px;padding:34px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);box-shadow:0 14px 36px rgba(15,39,66,.055)}
+.web-starter-heading .section-label{margin-bottom:8px}
+.web-starter-heading h3{margin:0;color:var(--navy);font-size:clamp(1.45rem,2.5vw,2rem)}
+.web-starter-heading>p:last-child{max-width:760px;margin:12px 0 0;color:var(--muted)}
+.service-accordion-wide{margin-top:26px}
+.service-detail-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+@media(max-width:680px){
+  .web-starter-card{margin-top:40px;padding:26px 20px}
+  .service-accordion-button{padding-top:16px;font-size:.88rem}
+  .service-detail-columns{grid-template-columns:1fr;gap:22px}
+  .service-price-table{gap:5px 12px}
+}
+@media(prefers-reduced-motion:reduce){
+  .service-accordion-icon,.service-accordion-panel{transition:none}
+}
