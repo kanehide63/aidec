@@ -64,6 +64,56 @@
     heroTitle.classList.add('is-typing');
   }
 
+  const messageMark = document.querySelector('.message-mark');
+  const messageDot = messageMark?.querySelector('.message-symbol-dot');
+  const playMessageSymbol = () => {
+    if (!messageMark || !messageDot || messageMark.dataset.symbolPlayed === 'true') return;
+    messageMark.dataset.symbolPlayed = 'true';
+    if (reduceMotion || typeof messageDot.animate !== 'function') {
+      messageMark.classList.add('is-symbol-settled');
+      return;
+    }
+    const markRect = messageMark.getBoundingClientRect();
+    const dotRect = messageDot.getBoundingClientRect();
+    const finalX = dotRect.left - markRect.left + dotRect.width / 2;
+    const finalY = dotRect.top - markRect.top + dotRect.height / 2;
+    const radius = Math.max(dotRect.width, dotRect.height) / 2;
+    const edge = Math.max(18, Math.min(markRect.width, markRect.height) * 0.06);
+    const left = edge + radius - finalX;
+    const right = markRect.width - edge - radius - finalX;
+    const top = edge + radius - finalY;
+    const bottom = markRect.height - edge - radius - finalY;
+    const keyframes = [
+      { transform: `translate(calc(-50% + ${left}px),calc(-50% + ${top + 24}px)) scale(.96)` },
+      { transform: `translate(calc(-50% + ${right}px),calc(-50% + ${top + 58}px)) scale(1.02)`, offset: .2 },
+      { transform: `translate(calc(-50% + ${right - 52}px),calc(-50% + ${bottom}px)) scale(.98)`, offset: .4 },
+      { transform: `translate(calc(-50% + ${left}px),calc(-50% + ${bottom - 48}px)) scale(1.02)`, offset: .6 },
+      { transform: `translate(calc(-50% + ${left + 66}px),calc(-50% + ${top}px)) scale(.98)`, offset: .78 },
+      { transform: `translate(calc(-50% + ${right * .22}px),calc(-50% + ${bottom * .18}px)) scale(1.01)`, offset: .9 },
+      { transform: 'translate(-50%,-50%) scale(1)', offset: 1 }
+    ];
+    const animation = messageDot.animate(keyframes, {
+      duration: 2850,
+      easing: 'cubic-bezier(.42,0,.22,1)',
+      fill: 'both'
+    });
+    animation.addEventListener('finish', () => {
+      animation.cancel();
+      messageMark.classList.add('is-symbol-settled');
+    }, { once: true });
+  };
+  if (messageMark && 'IntersectionObserver' in window) {
+    const messageObserver = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        playMessageSymbol();
+        messageObserver.disconnect();
+      }
+    }, { threshold: .42 });
+    messageObserver.observe(messageMark);
+  } else {
+    playMessageSymbol();
+  }
+
   const menuButton = document.querySelector('.menu-button');
   const nav = document.querySelector('.site-nav');
   const header = document.querySelector('.site-header');

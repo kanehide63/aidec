@@ -131,3 +131,15 @@
 @media(max-width:780px){.application-reassurance{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.application-reassurance{grid-template-columns:1fr 1fr;gap:8px}.application-reassurance span{padding:11px 8px;font-size:.76rem}.application-reassurance strong{font-size:.82rem}}
 @media(prefers-reduced-motion:reduce){.scroll-progress span{transition:none}}
+
+/* Representative message symbol animation */
+.message-mark{position:relative;overflow:hidden}
+.message-symbol-stage{position:relative;display:block;width:180px;height:180px}
+.message-mark .message-symbol-a{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.message-mark .message-symbol-dot{position:absolute;z-index:2;left:69.5%;top:61.5%;width:9.5%;height:auto;filter:drop-shadow(0 0 0 rgba(22,112,232,0));transform:translate(-50%,-50%);will-change:transform,filter}
+.message-mark.is-symbol-settled .message-symbol-dot{animation:message-dot-glow 1.05s ease-out 1 both}
+.message-mark.is-symbol-settled:after{content:"";position:absolute;left:calc(50% + 35px);top:calc(50% + 21px);width:18px;height:18px;border-radius:50%;border:2px solid rgba(22,112,232,.58);transform:translate(-50%,-50%) scale(.6);opacity:0;pointer-events:none;animation:message-dot-ripple 1.05s ease-out 1}
+@keyframes message-dot-glow{0%{filter:drop-shadow(0 0 0 rgba(22,112,232,0))}35%{filter:drop-shadow(0 0 10px rgba(22,112,232,.95)) drop-shadow(0 0 22px rgba(22,112,232,.58))}100%{filter:drop-shadow(0 0 0 rgba(22,112,232,0))}}
+@keyframes message-dot-ripple{0%{opacity:0;transform:translate(-50%,-50%) scale(.6)}28%{opacity:.85}100%{opacity:0;transform:translate(-50%,-50%) scale(3)}}
+@media(max-width:680px){.message-symbol-stage{width:150px;height:150px}.message-mark.is-symbol-settled:after{left:calc(50% + 29px);top:calc(50% + 18px);width:15px;height:15px}}
+@media(prefers-reduced-motion:reduce){.message-symbol-dot{transform:translate(-50%,-50%)!important}.message-mark.is-symbol-settled .message-symbol-dot,.message-mark.is-symbol-settled:after{animation:none!important}}
