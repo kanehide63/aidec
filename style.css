@@ -16,6 +16,7 @@
 
 /* Brand intro movie */
 body.brand-intro-pending{overflow:hidden}
+body.brand-intro-pending .hero-title-char{animation-play-state:paused!important}
 body.brand-intro-pending>header,body.brand-intro-pending>main,body.brand-intro-pending>footer,body.brand-intro-pending>.scroll-progress{opacity:0;transform:scale(1.012);filter:blur(5px)}
 body>header,body>main,body>footer,body>.scroll-progress{transition:opacity 1.05s cubic-bezier(.22,.61,.36,1),transform 1.05s cubic-bezier(.22,.61,.36,1),filter 1.05s cubic-bezier(.22,.61,.36,1)}
 body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-intro-revealing>footer,body.brand-intro-revealing>.scroll-progress{opacity:1;transform:none;filter:none}
