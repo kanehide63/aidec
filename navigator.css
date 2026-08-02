@@ -5,20 +5,15 @@ body{min-height:100vh;margin:0;color:var(--navy);background:radial-gradient(circ
 button,input{font:inherit}
 .navigator-brand-intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;overflow:hidden;background:#fff;animation:navigator-intro-dismiss .85s cubic-bezier(.22,.61,.36,1) 5.55s forwards}
 .navigator-intro-stage{display:grid;width:100%;height:100%;place-items:center}
-.navigator-intro-symbol{position:relative;width:clamp(260px,34vw,420px);aspect-ratio:1/1;isolation:isolate}
+.navigator-intro-symbol{position:relative;width:clamp(260px,34vw,420px);aspect-ratio:1/1;isolation:isolate;perspective:1100px}
 .navigator-intro-symbol img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.navigator-intro-base{z-index:1;will-change:filter,transform;animation:navigator-layer-glow 1.1s cubic-bezier(.22,.61,.36,1) 4.12s 1}
-.navigator-intro-orbit{z-index:2;transform-origin:50% 50%;will-change:transform,filter;animation:navigator-orbit-revolution 3.6s cubic-bezier(.4,0,.2,1) .4s both,navigator-layer-glow 1.1s cubic-bezier(.22,.61,.36,1) 4.12s 1}
-.navigator-intro-symbol-glow{position:absolute;inset:15%;z-index:0;border-radius:50%;opacity:0;pointer-events:none;animation:navigator-symbol-glow 1.1s cubic-bezier(.22,.61,.36,1) 4.12s 1}
+.navigator-intro-base{z-index:1}
+.navigator-intro-orbit-final{z-index:2;opacity:1;transform-origin:50% 54%;transform-style:preserve-3d;backface-visibility:visible;will-change:transform;animation:navigator-orbit-around 3.85s cubic-bezier(.42,0,.18,1) .38s both}
+.navigator-intro-dot-glow{position:absolute;left:68%;top:51%;z-index:4;width:8%;aspect-ratio:1/1;border-radius:50%;opacity:0;transform:translate(-50%,-50%);pointer-events:none;animation:navigator-dot-glow .95s ease-out 4.42s 1}
 body.navigator-intro-pending{overflow:hidden}
 body.navigator-intro-pending .navigator-page{opacity:0;transform:scale(1.008);filter:blur(4px);animation:navigator-login-reveal .85s cubic-bezier(.22,.61,.36,1) 5.55s forwards}
-@keyframes navigator-orbit-revolution{
-  0%{transform:rotate(0deg);filter:drop-shadow(0 0 0 rgba(22,112,232,0))}
-  45%{filter:drop-shadow(0 5px 10px rgba(22,112,232,.16))}
-  100%{transform:rotate(-360deg);filter:drop-shadow(0 0 0 rgba(22,112,232,0))}
-}
-@keyframes navigator-layer-glow{0%,100%{filter:drop-shadow(0 0 0 rgba(22,112,232,0));transform:scale(1)}45%{filter:drop-shadow(0 0 14px rgba(22,112,232,.42));transform:scale(1.012)}}
-@keyframes navigator-symbol-glow{0%,100%{opacity:0;box-shadow:0 0 0 rgba(22,112,232,0)}45%{opacity:1;box-shadow:0 0 34px rgba(22,112,232,.18),0 0 68px rgba(22,112,232,.09)}}
+@keyframes navigator-orbit-around{0%{z-index:2;transform:rotateY(0deg)}24%{z-index:2;transform:rotateY(-88deg)}25%{z-index:0;transform:rotateY(-90deg)}50%{z-index:0;transform:rotateY(-180deg)}74%{z-index:0;transform:rotateY(-268deg)}75%{z-index:2;transform:rotateY(-270deg)}100%{z-index:2;transform:rotateY(-360deg)}}
+@keyframes navigator-dot-glow{0%{opacity:0;background:rgba(22,112,232,0);box-shadow:0 0 0 rgba(22,112,232,0)}38%{opacity:1;background:rgba(74,151,255,.2);box-shadow:0 0 18px rgba(22,112,232,.72),0 0 38px rgba(22,112,232,.34)}100%{opacity:0;background:rgba(22,112,232,0);box-shadow:0 0 0 rgba(22,112,232,0)}}
 @keyframes navigator-intro-dismiss{to{opacity:0;visibility:hidden}}
 @keyframes navigator-login-reveal{to{opacity:1;transform:none;filter:none}}
 .navigator-skip-link{position:fixed;left:16px;top:16px;z-index:10;padding:10px 14px;border-radius:8px;background:var(--navy);color:var(--white);transform:translateY(-160%)}
