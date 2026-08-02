@@ -8,9 +8,11 @@ AIDEC公式ホームページ AIDEC Navigator入口・ログインページ実�
 ・navigator.js（仮ログイン動作を新規追加）
 ・navigator-config.js（準備中メッセージ設定を新規追加）
 ・aidec-navigator-logo.jpg（提供済み文字あり正式ロゴ）
+・aidec-navigator-base.png（ANロゴ軌道アニメーション用レイヤー）
+・aidec-navigator-orbit.png（ANロゴ青ライン用アニメーションレイヤー）
 
-上記7ファイルをGitHubリポジトリの最上位へアップロードしてください。
-index.htmlとstyle.cssは既存ファイルを上書きし、残り5ファイルは新規追加します。
+上記9ファイルをGitHubリポジトリの最上位へアップロードしてください。
+index.htmlとstyle.cssは既存ファイルを上書きし、残り7ファイルは新規追加または更新します。
 
 【現在の仮ログイン設定】
 navigator-config.js の preparationMessage を変更すると、ログインボタン押下後の案内文を変更できます。
