@@ -12,8 +12,18 @@
   <script src="navigator-config.js" defer></script>
   <script src="navigator.js" defer></script>
 </head>
-<body>
+<body class="navigator-intro-pending">
   <a class="navigator-skip-link" href="#navigator-login">ログインフォームへ移動</a>
+  <section class="navigator-brand-intro" id="navigator-brand-intro" aria-label="AIDEC Navigator ブランドイントロ">
+    <div class="navigator-intro-stage" aria-hidden="true">
+      <div class="navigator-intro-symbol">
+        <img class="navigator-intro-base" src="aidec-navigator-intro-base.png" alt="" width="1280" height="1280">
+        <img class="navigator-intro-orbit" src="aidec-navigator-intro-orbit.png" alt="" width="1280" height="1280">
+        <img class="navigator-intro-final" src="aidec-navigator-symbol.jpg" alt="" width="1280" height="1280">
+        <span class="navigator-intro-dot-glow"></span>
+      </div>
+    </div>
+  </section>
   <main class="navigator-page">
     <section class="navigator-login-card" id="navigator-login" aria-labelledby="navigator-login-title">
       <h1 id="navigator-login-title" class="visually-hidden">AIDEC Navigator ログイン</h1>

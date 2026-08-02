@@ -1,24 +1,39 @@
-AIDEC公式ホームページ AIDEC Navigator入口・ログインページ実装版
+AIDEC Navigator ブランドイントロ修正版
 
-【GitHubへ上書き・追加するファイル】
-・index.html（Navigator入口とヘッダーの正式ANロゴリンクを追加）
-・style.css（入口ロゴとヘッダーANロゴ用スタイルを追加）
-・navigator.html（ログインページとログイン案内文を追加）
-・navigator.css（ログインページと案内文用スタイルを追加）
-・navigator.js（仮ログイン動作を新規追加）
-・navigator-config.js（準備中メッセージ設定を新規追加）
-・aidec-navigator-logo.jpg（提供済み文字あり正式ロゴ）
-・aidec-navigator-base.png（ANロゴ軌道アニメーション用レイヤー）
-・aidec-navigator-orbit.png（ANロゴ青ライン用アニメーションレイヤー）
+【実装内容】
+・AIDEC Navigatorログインページの表示前に、正式ブランドシンボルを使ったイントロを追加
+・∧と青い玉は常に固定
+・下部の青い軌道だけが、姿勢を変えず反時計回りに1周
+・1周後、青い軌道だけが右斜め45度方向へ滑らかに離脱
+・画面を柔らかく白へつなぎ、AN正式ブランドシンボルを表示
+・青い玉を一度だけ柔らかく発光
+・約0.5秒の余韻後、ログイン画面をフェードイン
+・動きを抑える端末設定（視差効果を減らす）にも対応
 
-上記9ファイルをGitHubリポジトリの最上位へアップロードしてください。
-index.htmlとstyle.cssは既存ファイルを上書きし、残り7ファイルは新規追加または更新します。
+【変更・追加ファイル】
+・index.html
+・style.css
+・navigator.html
+・navigator.css
+・navigator.js
+・navigator-config.js
+・aidec-navigator-logo.jpg
+・aidec-navigator-symbol.jpg
+・aidec-navigator-intro-base.png
+・aidec-navigator-intro-orbit.png
 
-【現在の仮ログイン設定】
-navigator-config.js の preparationMessage を変更すると、ログインボタン押下後の案内文を変更できます。
-現在は「AIDEC Navigatorは現在準備中です。」と表示します。
+【更新方法】
+ZIPを展開し、上記ファイルを現在のGitHub Pagesリポジトリ直下へ上書きしてください。
+同名ファイルは今回の内容へ置き換えてください。
 
-本番の顧客認証は未実装です。入力したID・Passwordは送信・保存されず、URLにも表示されません。
+【確認済み】
+・青い軌道に回転処理がなく、移動だけで公転していること
+・∧と青い玉が公転中も固定されていること
+・公転、離脱、白フェード、正式シンボル表示、発光、ログイン表示の順序
+・Windows PC表示
+・iPad縦向き／横向き表示
+・スマートフォン表示
+・イントロ終了後にログインカードが画面幅内へ収まること
+・JavaScript構文エラーおよびブラウザコンソールエラーがないこと
 
-【バックアップ】
-実装前の既存ファイルは backups フォルダー内へ保存済みです。
+※AIDEC本体のブランド資産とAIDEC Navigatorの正式ブランド資産は混同せず、提供済みのAN正式データのみを使用しています。

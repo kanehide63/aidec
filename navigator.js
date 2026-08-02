@@ -6,6 +6,16 @@
   const passwordInput = document.getElementById("navigator-password");
   const message = document.getElementById("navigator-login-message");
   const config = window.AIDEC_NAVIGATOR_CONFIG || {};
+  const intro = document.getElementById("navigator-brand-intro");
+
+  if (intro) {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const finishIntro = () => {
+      intro.hidden = true;
+      document.body.classList.remove("navigator-intro-pending");
+    };
+    window.setTimeout(finishIntro, reduceMotion ? 0 : 8050);
+  }
 
   if (!form || !idInput || !passwordInput || !message) return;
 
