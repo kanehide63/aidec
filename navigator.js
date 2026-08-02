@@ -14,7 +14,7 @@
       intro.hidden = true;
       document.body.classList.remove("navigator-intro-pending");
     };
-    window.setTimeout(finishIntro, reduceMotion ? 0 : 8050);
+    window.setTimeout(finishIntro, reduceMotion ? 0 : 6450);
   }
 
   if (!form || !idInput || !passwordInput || !message) return;
