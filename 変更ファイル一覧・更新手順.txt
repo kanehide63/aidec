@@ -3,8 +3,8 @@ AIDEC公式ホームページ AIDEC Navigator入口・ログインページ実�
 【GitHubへ上書き・追加するファイル】
 ・index.html（Navigator入口とヘッダーの正式ANロゴリンクを追加）
 ・style.css（入口ロゴとヘッダーANロゴ用スタイルを追加）
-・navigator.html（ログインページを新規追加）
-・navigator.css（ログインページ用スタイルを新規追加）
+・navigator.html（ログインページとログイン案内文を追加）
+・navigator.css（ログインページと案内文用スタイルを追加）
 ・navigator.js（仮ログイン動作を新規追加）
 ・navigator-config.js（準備中メッセージ設定を新規追加）
 ・aidec-navigator-logo.jpg（提供済み文字あり正式ロゴ）
