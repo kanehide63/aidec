@@ -1,0 +1,22 @@
+AIDEC公式ホームページ AIDEC Navigator入口・ログインページ実装版
+
+【GitHubへ上書き・追加するファイル】
+・index.html（Navigator入口を追加）
+・style.css（入口ロゴ用スタイルを追加）
+・navigator.html（ログインページを新規追加）
+・navigator.css（ログインページ用スタイルを新規追加）
+・navigator.js（仮ログイン動作を新規追加）
+・navigator-config.js（準備中メッセージ設定を新規追加）
+・aidec-navigator-logo.jpg（提供済み文字あり正式ロゴ）
+
+上記7ファイルをGitHubリポジトリの最上位へアップロードしてください。
+index.htmlとstyle.cssは既存ファイルを上書きし、残り5ファイルは新規追加します。
+
+【現在の仮ログイン設定】
+navigator-config.js の preparationMessage を変更すると、ログインボタン押下後の案内文を変更できます。
+現在は「AIDEC Navigatorは現在準備中です。」と表示します。
+
+本番の顧客認証は未実装です。入力したID・Passwordは送信・保存されず、URLにも表示されません。
+
+【バックアップ】
+実装前の既存ファイルは backups フォルダー内へ保存済みです。
