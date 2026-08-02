@@ -267,6 +267,13 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
 @media(max-width:680px){.navigator-entry-wrap{margin-top:40px}.navigator-entry-link{width:min(270px,82vw);padding:12px;border-radius:20px}}
 @media(prefers-reduced-motion:reduce){.navigator-entry-link{transition:none}.navigator-entry-link:hover{transform:none}}
 
+/* AIDEC Navigator header icon */
+.site-nav .nav-an{display:grid;width:64px;height:64px;padding:0;place-items:center;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:var(--white);opacity:1}
+.site-nav .nav-an img{width:100%;height:100%;object-fit:contain}
+.site-nav .nav-an:hover{border-color:rgba(22,112,232,.3);background:#f8fbff}
+@media(min-width:981px) and (max-width:1160px){.site-nav .nav-an{width:54px;height:54px;border-radius:12px}}
+@media(max-width:980px){.site-nav .nav-an{align-self:center;width:82px;height:82px;margin:6px 0;padding:0;border-radius:16px}}
+
 /* Brand concept: Our Compass */
 .compass-section{position:relative;overflow:hidden;background:var(--white);border-bottom:1px solid var(--line)}
 .compass-section:before{content:"";position:absolute;left:0;top:112px;width:6px;height:112px;border-radius:0 6px 6px 0;background:linear-gradient(180deg,var(--navy),var(--blue))}
