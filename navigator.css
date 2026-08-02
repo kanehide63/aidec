@@ -3,21 +3,6 @@
 html{min-height:100%;background:var(--surface)}
 body{min-height:100vh;margin:0;color:var(--navy);background:radial-gradient(circle at 50% 42%,rgba(22,112,232,.065),transparent 36%),var(--surface);font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
 button,input{font:inherit}
-.navigator-brand-intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;overflow:hidden;background:#fff;animation:navigator-intro-dismiss .85s cubic-bezier(.22,.61,.36,1) 5.55s forwards}
-.navigator-intro-stage{display:grid;width:100%;height:100%;place-items:center}
-.navigator-intro-symbol{position:relative;width:clamp(260px,34vw,420px);aspect-ratio:1/1;isolation:isolate;perspective:1100px}
-.navigator-intro-symbol img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.navigator-intro-base{z-index:1}
-.navigator-intro-orbit-final{z-index:2;opacity:1;transform-origin:50% 54%;transform-style:preserve-3d;backface-visibility:visible;will-change:transform;animation:navigator-orbit-around 3.85s cubic-bezier(.42,0,.18,1) .38s both}
-.navigator-intro-dot-glow{position:absolute;left:68%;top:51%;z-index:4;width:8%;aspect-ratio:1/1;border-radius:50%;opacity:0;transform:translate(-50%,-50%);pointer-events:none;animation:navigator-dot-glow .95s ease-out 4.42s 1}
-body.navigator-intro-pending{overflow:hidden}
-body.navigator-intro-pending .navigator-page{opacity:0;transform:scale(1.008);filter:blur(4px);animation:navigator-login-reveal .85s cubic-bezier(.22,.61,.36,1) 5.55s forwards}
-@keyframes navigator-orbit-around{0%{z-index:2;transform:rotateY(0deg)}24%{z-index:2;transform:rotateY(-88deg)}25%{z-index:0;transform:rotateY(-90deg)}50%{z-index:0;transform:rotateY(-180deg)}74%{z-index:0;transform:rotateY(-268deg)}75%{z-index:2;transform:rotateY(-270deg)}100%{z-index:2;transform:rotateY(-360deg)}}
-@keyframes navigator-dot-glow{0%{opacity:0;background:rgba(22,112,232,0);box-shadow:0 0 0 rgba(22,112,232,0)}38%{opacity:1;background:rgba(74,151,255,.2);box-shadow:0 0 18px rgba(22,112,232,.72),0 0 38px rgba(22,112,232,.34)}100%{opacity:0;background:rgba(22,112,232,0);box-shadow:0 0 0 rgba(22,112,232,0)}}
-@keyframes navigator-intro-dismiss{to{opacity:0;visibility:hidden}}
-@keyframes navigator-login-reveal{to{opacity:1;transform:none;filter:none}}
-.navigator-skip-link{position:fixed;left:16px;top:16px;z-index:10;padding:10px 14px;border-radius:8px;background:var(--navy);color:var(--white);transform:translateY(-160%)}
-.navigator-skip-link:focus{transform:none}
 .navigator-page{display:grid;min-height:100vh;place-items:center;padding:48px 24px}
 .navigator-login-card{width:min(100%,480px);padding:38px 48px 34px;border:1px solid var(--line);border-radius:28px;background:rgba(255,255,255,.96);box-shadow:0 24px 64px rgba(15,39,66,.09)}
 .navigator-logo{display:block;width:min(260px,76%);height:auto;margin:0 auto 24px;aspect-ratio:1/1;object-fit:contain}
@@ -37,4 +22,4 @@ body.navigator-intro-pending .navigator-page{opacity:0;transform:scale(1.008);fi
 .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 @media(max-width:680px){.navigator-page{padding:26px 18px}.navigator-login-card{padding:28px 24px 26px;border-radius:22px}.navigator-logo{width:min(230px,74%);margin-bottom:18px}.navigator-guidance{margin-bottom:22px;font-size:.76rem}}
 @media(min-width:700px) and (max-width:1180px) and (orientation:landscape){.navigator-page{padding:24px}.navigator-login-card{display:grid;grid-template-columns:180px minmax(0,1fr);gap:10px 34px;align-items:center;width:min(100%,680px);padding:30px 38px}.navigator-logo{grid-row:1/4;width:180px;margin:0}.navigator-guidance{grid-column:2;margin:0 0 4px}.navigator-login-form{grid-column:2}.navigator-back-link{grid-column:2;margin-top:8px}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.navigator-login-button,.navigator-field input{transition:none}.navigator-login-button:hover{transform:none}.navigator-brand-intro{display:none}.navigator-intro-symbol *{animation:none!important}body.navigator-intro-pending{overflow:auto}body.navigator-intro-pending .navigator-page{opacity:1;transform:none;filter:none;animation:none}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.navigator-login-button,.navigator-field input{transition:none}.navigator-login-button:hover{transform:none}}
