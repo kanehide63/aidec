@@ -1,0 +1,25 @@
+:root{--navy:#0f2742;--blue:#1670e8;--muted:#60748a;--line:#dbe5ef;--surface:#f7faff;--white:#fff}
+*{box-sizing:border-box}
+html{min-height:100%;background:var(--surface)}
+body{min-height:100vh;margin:0;color:var(--navy);background:radial-gradient(circle at 50% 42%,rgba(22,112,232,.065),transparent 36%),var(--surface);font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+button,input{font:inherit}
+.navigator-page{display:grid;min-height:100vh;place-items:center;padding:48px 24px}
+.navigator-login-card{width:min(100%,480px);padding:38px 48px 34px;border:1px solid var(--line);border-radius:28px;background:rgba(255,255,255,.96);box-shadow:0 24px 64px rgba(15,39,66,.09)}
+.navigator-logo{display:block;width:min(260px,76%);height:auto;margin:0 auto 24px;aspect-ratio:1/1;object-fit:contain}
+.navigator-guidance{margin:0 0 24px;color:var(--muted);font-size:.78rem;line-height:1.75;text-align:center}
+.navigator-login-form{display:grid;gap:20px}
+.navigator-field{display:grid;gap:8px}
+.navigator-field label{font-size:.84rem;font-weight:850;letter-spacing:.035em}
+.navigator-field input{width:100%;min-height:52px;padding:12px 14px;border:1px solid #cbd8e5;border-radius:12px;background:var(--white);color:var(--navy);outline:none;transition:border-color .2s,box-shadow .2s}
+.navigator-field input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(22,112,232,.12)}
+.navigator-login-button{min-height:52px;margin-top:2px;border:0;border-radius:999px;background:var(--navy);color:var(--white);font-weight:850;cursor:pointer;transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
+.navigator-login-button:hover{background:#17395e;box-shadow:0 10px 24px rgba(15,39,66,.16);transform:translateY(-1px)}
+.navigator-login-button:focus-visible{outline:3px solid rgba(22,112,232,.35);outline-offset:4px}
+.navigator-login-message{margin:0;padding:13px 14px;border-radius:10px;background:#edf5ff;color:var(--navy);font-size:.86rem;line-height:1.65;text-align:center}
+.navigator-login-message.is-error{background:#fff1f1;color:#a62929}
+.navigator-back-link{display:block;margin-top:24px;color:var(--muted);font-size:.78rem;text-align:center;text-underline-offset:4px}
+.navigator-back-link:hover{color:var(--navy)}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:680px){.navigator-page{padding:26px 18px}.navigator-login-card{padding:28px 24px 26px;border-radius:22px}.navigator-logo{width:min(230px,74%);margin-bottom:18px}.navigator-guidance{margin-bottom:22px;font-size:.76rem}}
+@media(min-width:700px) and (max-width:1180px) and (orientation:landscape){.navigator-page{padding:24px}.navigator-login-card{display:grid;grid-template-columns:180px minmax(0,1fr);gap:10px 34px;align-items:center;width:min(100%,680px);padding:30px 38px}.navigator-logo{grid-row:1/4;width:180px;margin:0}.navigator-guidance{grid-column:2;margin:0 0 4px}.navigator-login-form{grid-column:2}.navigator-back-link{grid-column:2;margin-top:8px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.navigator-login-button,.navigator-field input{transition:none}.navigator-login-button:hover{transform:none}}
