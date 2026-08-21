@@ -544,3 +544,11 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     padding:22px 18px;
   }
 }
+/* Referral hero centered layout */
+.referral-page .referral-hero-inner{
+  text-align:center;
+}
+
+.referral-page .referral-hero-dates{
+  justify-content:center;
+}
