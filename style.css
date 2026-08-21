@@ -405,3 +405,14 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     width:100%;
   }
 }
+
+/* Referral footer copy: single line on desktop */
+.footer-referral-card p:not(.footer-referral-label){
+  white-space:nowrap;
+  font-size:.72rem;
+}
+@media(max-width:980px){
+  .footer-referral-card p:not(.footer-referral-label){
+    white-space:normal;
+  }
+}
