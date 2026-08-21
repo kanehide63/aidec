@@ -675,3 +675,11 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     gap:6px;
   }
 }
+@media(max-width:680px){
+  .referral-page .referral-hero-dates > span{
+    display:block;
+    width:100%;
+    text-align:center;
+    white-space:nowrap;
+  }
+}
