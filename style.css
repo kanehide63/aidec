@@ -552,3 +552,15 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
 .referral-page .referral-hero-dates{
   justify-content:center;
 }
+/* Referral hero brand panel */
+.referral-page .referral-hero-inner{
+  padding:34px 30px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(
+    90deg,
+    rgba(244,247,250,0),
+    rgba(244,247,250,.82),
+    rgba(244,247,250,0)
+  );
+}
