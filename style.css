@@ -666,3 +666,12 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     text-align:center;
   }
 }
+/* Referral mobile dates */
+@media(max-width:680px){
+  .referral-page .referral-hero-dates{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+  }
+}
