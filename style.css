@@ -1053,3 +1053,16 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     margin-top:80px;
   }
 }
+/* AOS Navigator mobile centering */
+@media (max-width:680px){
+    .aos-hero-layout > .navigator-entry-wrap{
+        width:100%;
+        margin-left:auto;
+        margin-right:auto;
+        justify-self:center;
+        align-self:center;
+        grid-column:1;
+        display:flex;
+        justify-content:center;
+    }
+}
