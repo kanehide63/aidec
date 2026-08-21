@@ -564,3 +564,45 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     rgba(244,247,250,0)
   );
 }
+/* Referral mobile header compact layout */
+@media(max-width:760px){
+  .referral-page .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:nowrap;
+  }
+
+  .referral-page .brand{
+    flex:0 0 auto;
+  }
+
+  .referral-page .site-nav{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:8px;
+    flex:1 1 auto;
+    padding:0;
+    margin:0;
+    border:0;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  .referral-page .referral-nav-link,
+  .referral-page .nav-cta{
+    white-space:nowrap;
+    margin:0;
+  }
+
+  .referral-page .referral-nav-link{
+    font-size:.78rem;
+  }
+
+  .referral-page .nav-cta{
+    padding:10px 14px;
+    font-size:.78rem;
+  }
+}
