@@ -683,3 +683,21 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     white-space:nowrap;
   }
 }
+.referral-date-break{
+  display:none;
+}
+
+@media(max-width:680px){
+  .referral-page .referral-hero-dates{
+    display:block;
+    text-align:center;
+  }
+
+  .referral-page .referral-date-break{
+    display:block;
+  }
+
+  .referral-page .referral-hero-dates span{
+    white-space:nowrap;
+  }
+}
