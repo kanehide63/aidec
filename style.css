@@ -606,3 +606,63 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     font-size:.78rem;
   }
 }
+/* Referral tablet / mobile compact header */
+@media(max-width:980px){
+
+  .referral-page .header-inner{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:nowrap;
+  }
+
+  .referral-page .brand{
+    flex:0 0 auto;
+    gap:8px;
+  }
+
+  .referral-page .brand-logo{
+    width:34px;
+    height:34px;
+  }
+
+  .referral-page .brand-copy strong{
+    font-size:1rem;
+  }
+
+  .referral-page .site-nav{
+    position:static;
+    top:auto;
+    left:auto;
+    right:auto;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:flex-end;
+    gap:8px;
+    flex:1 1 auto;
+    margin:0;
+    padding:0;
+    border:0;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  .referral-page .site-nav a{
+    width:auto;
+    padding:0;
+    margin:0;
+    white-space:nowrap;
+    font-size:.72rem;
+  }
+
+  .referral-page .site-nav .nav-cta{
+    margin:0;
+    padding:8px 11px;
+    font-size:.72rem;
+    text-align:center;
+  }
+}
