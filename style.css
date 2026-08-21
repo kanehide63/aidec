@@ -509,3 +509,38 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
   margin-bottom:0;
   align-self:center;
 }
+/* Referral 2-column card layout */
+.referral-card-grid{
+  width:min(100% - 40px, 1000px);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:24px;
+}
+
+.referral-card-grid > .referral-section{
+  margin:0;
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+}
+
+.referral-card-grid > .referral-section > .container{
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:0;
+}
+
+@media(max-width:760px){
+  .referral-card-grid{
+    grid-template-columns:1fr;
+    width:min(100% - 28px, 1000px);
+    gap:16px;
+  }
+
+  .referral-card-grid > .referral-section{
+    padding:22px 18px;
+  }
+}
