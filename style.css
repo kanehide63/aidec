@@ -929,3 +929,83 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     padding:24px 18px;
   }
 }
+/* AOS hero - same layout concept as main hero */
+.aos-hero-layout{
+  width:min(100% - 40px,1000px);
+  margin:48px auto 0;
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);
+  gap:72px;
+  align-items:center;
+}
+
+.aos-copy{
+  min-width:0;
+  text-align:left;
+}
+
+.aos-copy .section-label{
+  margin-bottom:16px;
+}
+
+.aos-copy .aos-intro-title{
+  margin:0 0 24px;
+}
+
+.aos-copy .aos-intro-lead,
+.aos-copy .aos-intro-text{
+  max-width:680px;
+  margin-left:0;
+  margin-right:0;
+}
+
+.aos-hero-layout .navigator-entry-wrap{
+  margin:0;
+  justify-content:flex-end;
+}
+
+.aos-hero-layout .navigator-entry-link{
+  width:min(290px,28vw);
+}
+
+/* AOS hero tablet */
+@media (min-width:681px) and (max-width:1160px){
+  .aos-hero-layout{
+    width:min(100% - 56px,900px);
+    grid-template-columns:minmax(0,1.1fr) minmax(220px,.9fr);
+    gap:40px;
+  }
+
+  .aos-hero-layout .navigator-entry-link{
+    width:min(250px,28vw);
+  }
+}
+
+/* AOS hero mobile */
+@media (max-width:680px){
+  .aos-hero-layout{
+    width:min(100% - 28px,560px);
+    grid-template-columns:1fr;
+    gap:32px;
+    margin-top:38px;
+  }
+
+  .aos-copy{
+    text-align:center;
+  }
+
+  .aos-copy .aos-intro-lead,
+  .aos-copy .aos-intro-text{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .aos-hero-layout .navigator-entry-wrap{
+    justify-content:center;
+    margin:0;
+  }
+
+  .aos-hero-layout .navigator-entry-link{
+    width:min(250px,72vw);
+  }
+}
