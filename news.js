@@ -5,6 +5,11 @@
  */
 window.AIDEC_NEWS = [
   {
+    date: "2026/08/21",
+    title: "AIDEC ご紹介特典を開始しました",
+    url: "referral/"
+  },
+  {
     date: "2026/07/30",
     title: "AIDEC開業・ホームページ公開",
     url: "#news-20260730"
