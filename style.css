@@ -1066,3 +1066,9 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
         justify-content:center;
     }
 }
+/* AOS Navigator tablet vertical alignment */
+@media (min-width:681px) and (max-width:1160px){
+    .aos-hero-layout > .navigator-entry-wrap{
+        align-self:center;
+    }
+}
