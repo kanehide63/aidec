@@ -1023,3 +1023,27 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
 .aos-hero-layout > .aos-copy{
   grid-column:1;
 }
+/* AOS Navigator final desktop layout */
+@media (min-width: 681px) {
+  .aos-hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr);
+    align-items: start;
+  }
+
+  .aos-hero-layout > .aos-copy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .aos-hero-layout > .navigator-entry-wrap {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    align-self: start;
+  }
+}
