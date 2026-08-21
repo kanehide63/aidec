@@ -718,3 +718,26 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
   margin-left:auto;
   white-space:nowrap;
 }
+/* Official site footer - tablet layout */
+@media (min-width:681px) and (max-width:1160px){
+
+  .footer-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:36px 32px;
+    align-items:start;
+  }
+
+  .footer-brand-column,
+  .footer-links,
+  .footer-contact{
+    min-width:0;
+  }
+
+  .footer-contact{
+    grid-column:1 / -1;
+    width:100%;
+    padding-top:28px;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+}
