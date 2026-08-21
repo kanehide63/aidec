@@ -318,3 +318,53 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
 .referral-page .site-footer .brand{pointer-events:auto}.referral-page .site-footer .brand-logo{flex:0 0 auto}
 @media(max-width:900px){.referral-home-card{align-items:flex-start;flex-direction:column}.referral-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.referral-page .site-nav{display:flex;position:static;flex-direction:row;padding:0;border:0;box-shadow:none;background:transparent}.referral-page .menu-button{display:none}}
 @media(max-width:680px){.referral-home-section{padding:54px 0}.referral-home-card{padding:28px 22px}.referral-home-copy>p:last-child br{display:none}.referral-home-button{width:100%;white-space:normal;text-align:center}.referral-page .header-inner{min-height:72px}.referral-page .site-nav{gap:7px}.referral-page .site-nav a{font-size:.74rem;padding:8px 10px}.referral-page .site-nav .referral-nav-link{padding:8px 10px}.referral-page .brand-copy small{display:none}.referral-hero{padding:66px 0 54px}.referral-section{padding:64px 0}.referral-gift-grid,.referral-flow,.referral-policy-dates{grid-template-columns:1fr}.referral-gift-card,.referral-text-card,.referral-policy-box{padding:24px 20px}.referral-list li{padding-left:26px}.referral-final{padding:68px 0}.referral-final-actions{flex-direction:column}.referral-final-actions .button{width:100%}}
+
+/* AIDEC Referral Footer CTA */
+.footer-referral-card{
+  margin-top:22px;
+  padding:18px 20px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  background:rgba(255,255,255,.045);
+  color:rgba(255,255,255,.72);
+}
+.footer-referral-label{
+  margin:0 0 5px;
+  color:#8fc4ff;
+  font-size:.74rem;
+  font-weight:850;
+  letter-spacing:.08em;
+}
+.footer-referral-card h3{
+  margin:0;
+  color:var(--white);
+  font-size:1rem;
+  line-height:1.5;
+}
+.footer-referral-card p:not(.footer-referral-label){
+  margin:8px 0 0;
+  color:rgba(255,255,255,.64);
+  font-size:.76rem;
+  line-height:1.7;
+}
+.footer-referral-card a{
+  display:inline-block;
+  margin-top:10px;
+  color:#8fc4ff;
+  font-size:.76rem;
+  font-weight:800;
+  transition:color .2s,transform .2s;
+}
+.footer-referral-card a:hover{
+  color:var(--white);
+  transform:translateX(2px);
+}
+@media(max-width:680px){
+  .footer-referral-card{
+    margin-top:20px;
+    padding:17px 18px;
+  }
+  .footer-referral-card p:not(.footer-referral-label) br{
+    display:none;
+  }
+}
