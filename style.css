@@ -497,3 +497,15 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
 .referral-final{
   padding-bottom:80px;
 }
+/* Referral header button alignment */
+.referral-page .site-nav{
+  display:flex;
+  align-items:center;
+}
+
+.referral-page .referral-nav-link,
+.referral-page .nav-cta{
+  margin-top:0;
+  margin-bottom:0;
+  align-self:center;
+}
