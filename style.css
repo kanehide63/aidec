@@ -1047,3 +1047,9 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     align-self: start;
   }
 }
+/* AOS Navigator section spacing */
+@media (min-width:681px){
+  .aos-hero-layout{
+    margin-top:80px;
+  }
+}
