@@ -1009,3 +1009,17 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     width:min(250px,72vw);
   }
 }
+/* AOS Navigator logo positioning fix */
+.aos-hero-layout > .navigator-entry-wrap{
+  width:100%;
+  margin:0;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  justify-self:end;
+  grid-column:2;
+}
+
+.aos-hero-layout > .aos-copy{
+  grid-column:1;
+}
