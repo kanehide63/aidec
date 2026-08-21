@@ -368,3 +368,40 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     display:none;
   }
 }
+
+/* AIDEC Referral Footer Middle Layout */
+.footer-middle{
+  flex:1 1 430px;
+  min-width:320px;
+}
+.footer-middle .footer-links{
+  margin-bottom:26px;
+}
+.footer-middle .footer-referral-card{
+  width:min(100%,430px);
+  margin:0;
+}
+@media(max-width:980px){
+  .footer-grid{
+    flex-wrap:wrap;
+  }
+  .footer-middle{
+    order:3;
+    flex-basis:100%;
+    min-width:0;
+  }
+  .footer-middle .footer-referral-card{
+    width:min(100%,520px);
+  }
+}
+@media(max-width:680px){
+  .footer-middle{
+    width:100%;
+  }
+  .footer-middle .footer-links{
+    margin-bottom:20px;
+  }
+  .footer-middle .footer-referral-card{
+    width:100%;
+  }
+}
