@@ -929,7 +929,7 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     padding:24px 18px;
   }
 }
-/* AOS hero - same layout concept as main hero */
+}/* AOS hero - same layout concept as main hero */
 .aos-hero-layout{
   width:min(calc(100% - 40px),1000px);
   margin:48px auto 0;
