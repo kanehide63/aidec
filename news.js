@@ -5,6 +5,11 @@
  */
 window.AIDEC_NEWS = [
   {
+    date: "2026/08/24",
+    title: "AIDEC独自業務基盤「AOS（AIDEC Operating System）」をリリースしました",
+    url: "#aos"
+  },
+  {
     date: "2026/08/21",
     title: "AIDEC ご紹介特典を開始しました",
     url: "referral/"

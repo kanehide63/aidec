@@ -175,12 +175,13 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
 .hero-brand-symbol{position:relative;display:block;width:154px;height:154px;isolation:isolate;transform-origin:50% 58%}
 .symbol-card .hero-brand-symbol img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;margin:0}
 .hero-brand-a{opacity:0;transform:translateY(14px);animation:hero-brand-a-arrive .72s cubic-bezier(.22,.78,.28,1) .18s forwards}
-.hero-brand-dot{opacity:0;transform:translate(-12px,8px) scale(.72);transform-origin:69.5% 61.5%;animation:hero-brand-dot-arrive .62s cubic-bezier(.2,.9,.3,1.18) .72s forwards;transition:transform .32s cubic-bezier(.2,.8,.3,1)}
+.hero-brand-dot{opacity:0;transform:translate(-12px,8px) scale(.72);transform-origin:69.5% 61.5%;animation:hero-brand-dot-arrive .62s cubic-bezier(.2,.9,.3,1.18) .72s forwards,hero-brand-dot-heartbeat 2.6s ease-in-out 1.55s infinite;transition:transform .32s cubic-bezier(.2,.8,.3,1);will-change:transform}
 .hero-brand-symbol:after{content:"";position:absolute;inset:20% 18%;z-index:2;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.82) 49%,transparent 63%);transform:translateX(-165%) skewX(-12deg);opacity:0;pointer-events:none;animation:hero-brand-light-pass .78s ease-out 1.28s forwards}
 .hero-brand-symbol{animation:hero-brand-breathe .72s ease-in-out 1.92s 1}
 .symbol-card:hover .hero-brand-dot{transform:translate(0,-3px) scale(1.06)}
 @keyframes hero-brand-a-arrive{to{opacity:1;transform:translateY(0)}}
 @keyframes hero-brand-dot-arrive{0%{opacity:0;transform:translate(-12px,8px) scale(.72)}72%{opacity:1;transform:translate(2px,-1px) scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes hero-brand-dot-heartbeat{0%,12%,27%,100%{transform:scale(1)}6%{transform:scale(1.13)}20%{transform:scale(1.085)}}
 @keyframes hero-brand-light-pass{0%{opacity:0;transform:translateX(-165%) skewX(-12deg)}20%{opacity:.72}100%{opacity:0;transform:translateX(165%) skewX(-12deg)}}
 @keyframes hero-brand-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
 @media(max-width:680px){.hero-brand-symbol{width:120px;height:120px}}
@@ -743,7 +744,7 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
 }
 /* AIDEC Navigator / AOS introduction */
 .aos-intro{
-  width:min(100% - 40px, 1000px);
+  width:min(100% - 40px, var(--max));
   margin:48px auto 88px;
   text-align:center;
 }
@@ -826,6 +827,38 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
   color:var(--navy);
   font-size:clamp(1.35rem,2.6vw,2rem);
   letter-spacing:.02em;
+}
+
+.aos-an-roles{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  margin:0 auto 34px;
+  text-align:left;
+}
+
+.aos-an-roles > div{
+  padding:24px 22px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--white);
+  box-shadow:0 10px 28px rgba(15,39,66,.04);
+}
+
+.aos-an-roles span{
+  display:block;
+  margin-bottom:10px;
+  color:var(--blue);
+  font-size:.88rem;
+  font-weight:800;
+  letter-spacing:.04em;
+}
+
+.aos-an-roles p{
+  margin:0;
+  color:var(--text);
+  font-size:.94rem;
+  line-height:1.8;
 }
 
 .aos-roles{
@@ -925,13 +958,18 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
     gap:14px;
   }
 
+  .aos-an-roles{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
   .aos-message{
     padding:24px 18px;
   }
 }
-}/* AOS hero - same layout concept as main hero */
+/* AOS hero - same layout concept as main hero */
 .aos-hero-layout{
-  width:min(calc(100% - 40px),1000px);
+  width:min(calc(100% - 40px),var(--max));
   margin:48px auto 0;
   display:grid;
   grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);
@@ -950,6 +988,8 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
 
 .aos-copy .aos-intro-title{
   margin:0 0 24px;
+  font-size:clamp(2rem,3vw,2.6rem);
+  white-space:nowrap;
 }
 
 .aos-copy .aos-intro-lead,
@@ -971,7 +1011,7 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
 /* AOS hero tablet */
 @media (min-width:681px) and (max-width:1160px){
   .aos-hero-layout{
-    width:min(100% - 56px,900px);
+    width:min(100% - 40px,var(--max));
     grid-template-columns:minmax(0,1.1fr) minmax(220px,.9fr);
     gap:40px;
   }
@@ -992,6 +1032,10 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
 
   .aos-copy{
     text-align:center;
+  }
+
+  .aos-copy .aos-intro-title{
+    font-size:clamp(1.45rem,7vw,1.75rem);
   }
 
   .aos-copy .aos-intro-lead,
@@ -1070,5 +1114,13 @@ body.brand-intro-revealing>header,body.brand-intro-revealing>main,body.brand-int
 @media (min-width:681px) and (max-width:1160px){
     .aos-hero-layout > .navigator-entry-wrap{
         align-self:center;
+    }
+}
+@media (min-width:1161px){
+    .aos-hero-layout > .navigator-entry-wrap{
+        transform:translateY(52px);
+    }
+    .aos-hero-layout .navigator-entry-link{
+        width:250px;
     }
 }
