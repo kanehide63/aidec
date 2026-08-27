@@ -37,7 +37,7 @@
       panel.classList.toggle('is-open', willOpen);
       panel.style.maxHeight = willOpen ? `${panel.scrollHeight}px` : '0px';
       if (willOpen) window.aidecTrack('service_details_open', {
-        service: panel.id === 'step3-details' ? 'AI企業診断360 Step3' : 'AI360 Webスタータープラン'
+        service: panel.id === 'strategy-report-details' ? 'AI企業診断360 戦略レポート' : 'AI360 Webスタータープラン'
       });
     });
     window.addEventListener('resize', () => {
