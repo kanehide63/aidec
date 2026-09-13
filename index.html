@@ -229,29 +229,63 @@
             </button>
             <div class="service-accordion-panel" id="web-starter-details" aria-hidden="true" inert>
               <div class="service-accordion-content">
-                <dl class="service-detail-list service-detail-columns">
-                  <div>
-                    <dt>制作プラン（税込）</dt>
-                    <dd>
-                      <div class="service-price-table">
-                        <span>ライト</span><strong>55,000円</strong>
-                        <span>スタンダード</span><strong>99,000円</strong>
-                        <span>プレミアム</span><strong>199,000円</strong>
-                      </div>
-                    </dd>
-                  </div>
-                  <div>
-                    <dt>運用サポート（月額・税込）</dt>
-                    <dd>
-                      <div class="service-price-table">
-                        <span>ライト</span><strong>2,200円</strong>
-                        <span>スタンダード</span><strong>5,500円</strong>
-                        <span>プレミアム</span><strong>9,900円</strong>
-                      </div>
-                    </dd>
-                  </div>
-                </dl>
-                <p class="service-detail-note">※各制作プランには、公開後の運用サポートが付帯します。納品後1か月間は無料で、その後は制作プランに応じた月額運用サポート料金が発生します。</p>
+                <div class="web-v2-sections">
+                  <section class="web-v2-section" aria-labelledby="web-v2-production">
+                    <h4 id="web-v2-production"><span>01</span>Web制作プラン</h4>
+                    <div class="web-v2-plan-grid">
+                      <article><strong>ライト</strong><b>55,000円</b><small>税込</small></article>
+                      <article><strong>スタンダード</strong><b>99,000円</b><small>税込</small></article>
+                      <article><strong>プレミアム</strong><b>199,000円</b><small>税込</small></article>
+                    </div>
+                  </section>
+
+                  <section class="web-v2-section" aria-labelledby="web-v2-options">
+                    <h4 id="web-v2-options"><span>02</span>制作後の選択肢</h4>
+                    <p>公開後は、必要な支援だけを選べます。月額契約は必須ではなく、Web運用サポートと専用管理サイトは併用できます。</p>
+                    <div class="web-v2-option-grid">
+                      <article><strong>Web運用サポート</strong><p>更新・修正を毎月依頼したい方へ</p></article>
+                      <article><strong>専用管理サイト</strong><p>自社で日常的に更新したい方へ</p></article>
+                      <article><strong>スポット修正</strong><p>必要なときだけ依頼したい方へ</p></article>
+                    </div>
+                  </section>
+
+                  <section class="web-v2-section" aria-labelledby="web-v2-support">
+                    <h4 id="web-v2-support"><span>03</span>Web運用サポート</h4>
+                    <div class="web-v2-support-table" role="table" aria-label="Web運用サポート料金と利用枠">
+                      <div class="web-v2-table-head" role="row"><span role="columnheader">プラン</span><span role="columnheader">月額（税込）</span><span role="columnheader">通常枠</span><span role="columnheader">最大繰越</span></div>
+                      <div role="row"><strong role="cell">ライト</strong><span role="cell">5,500円</span><span role="cell">月2ページ</span><span role="cell">1ページ</span></div>
+                      <div role="row"><strong role="cell">スタンダード</strong><span role="cell">9,900円</span><span role="cell">月4ページ</span><span role="cell">2ページ</span></div>
+                      <div role="row"><strong role="cell">プレミアム</strong><span role="cell">19,900円</span><span role="cell">月8ページ</span><span role="cell">4ページ</span></div>
+                    </div>
+                    <ul class="web-v2-points">
+                      <li>同じページ内の複数の変更は、まとめて1ページ分として扱います。</li>
+                      <li>通常枠の未使用分は50％を切り捨てて翌月へ繰り越し、繰越分から先に使用します。繰越分の再繰越はありません。</li>
+                      <li>最低利用期間は契約日から12か月です。期間終了後は、解約申請がない限り月単位で継続します。</li>
+                      <li>最低利用期間中も解約申請は可能ですが、12か月分までの支払義務は残り、月次でお支払いいただきます。詳細はお申し込み時にご案内します。</li>
+                      <li>アップグレードは次回更新日から適用します。ダウングレードは最低利用期間終了後にお申し込みいただけます。</li>
+                    </ul>
+                  </section>
+
+                  <section class="web-v2-section" aria-labelledby="web-v2-management">
+                    <h4 id="web-v2-management"><span>04</span>専用管理サイト</h4>
+                    <div class="web-v2-feature-row">
+                      <div><small>初期費用（税込）</small><strong>55,000円</strong></div>
+                      <div><small>月額（税込）</small><strong>550円</strong></div>
+                      <div><small>最低利用期間</small><strong>なし</strong></div>
+                    </div>
+                    <p>事前に合意した管理対象を、ご自身で更新できる専用環境です。Web運用サポートとの併用も可能です。解約後の再開には事務手数料5,500円（税込）がかかり、再構築が必要な場合は別途お見積もりします。</p>
+                  </section>
+
+                  <section class="web-v2-section" aria-labelledby="web-v2-spot">
+                    <h4 id="web-v2-spot"><span>05</span>スポット修正</h4>
+                    <div class="web-v2-spot"><strong>1ページ 14,800円（税込）</strong><p>Web運用サポート、専用管理サイトのいずれも利用していない場合に、必要なときだけご依頼いただけます。継続的な更新にはWeb運用サポートもご案内できます。</p></div>
+                  </section>
+
+                  <section class="web-v2-section web-v2-summary" aria-labelledby="web-v2-contract">
+                    <h4 id="web-v2-contract"><span>06</span>契約・繰越について</h4>
+                    <p>制作後の選択肢は、運用方法に合わせて個別にお選びいただけます。契約条件、利用枠、繰越、変更・解約の詳細は、お申し込み時に内容をご確認いただいたうえでご案内します。</p>
+                  </section>
+                </div>
                 <p class="service-detail-note">※決められたテンプレートに当てはめる制作ではありません。事業内容やご希望のイメージを伺い、それぞれのお客様に合わせて制作します。</p>
                 <p class="service-detail-note">※ご相談内容やご要望に応じて最適なプランをご提案いたします。</p>
                 <p class="service-detail-contact">詳細は<a href="#contact">お問い合わせください。</a></p>
