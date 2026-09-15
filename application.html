@@ -39,12 +39,12 @@
           <span>ご入力いただいた情報は、診断およびご連絡以外には使用しません。</span>
         </div>
 
-        <form id="diagnosis-form" action="https://formsubmit.co/3979284e20cb1a80a47ffdd7abbf3f19" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="【AIDEC】AI企業診断360のお申し込み">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_url" value="https://ai-dec.jp/application.html">
-          <input type="hidden" name="_next" value="https://ai-dec.jp/complete.html">
-          <input type="hidden" name="_autoresponse" value="このたびは、AIDEC「AI企業診断360」へお申し込みいただき、誠にありがとうございます。お申し込み内容を受け付けました。Step1～Step3は無料です。内容を確認のうえ、2～3営業日以内に担当者よりご連絡いたします。※このメールは自動送信されています。">
+        <form id="diagnosis-form" action="https://email.gosecureserver.in/api/send.php" method="POST" accept-charset="utf-8" novalidate>
+          <input type="hidden" name="to" value="info@ai-dec.jp">
+          <input type="hidden" name="subject" value="【AIDEC】AI企業診断360のお申し込み">
+          <div hidden aria-hidden="true">
+            <input type="text" name="hp_email" value="" tabindex="-1" autocomplete="off">
+          </div>
           <section class="form-panel" data-step="input" aria-labelledby="input-title">
             <div class="form-panel-heading">
               <p class="section-label">Step 1</p>
