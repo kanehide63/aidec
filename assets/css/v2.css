@@ -26,9 +26,9 @@
 #about-services .card .button{margin-top:auto;align-self:flex-start}
 #about-services .card p:last-of-type{margin-bottom:24px}
 /* Second visual review: TOP-only alignment and restrained hero reveal. */
-#service .cols-3>.card{display:flex;flex-direction:column}
-#service .cols-3>.card .button{margin-top:auto;align-self:flex-start}
-#service .cols-3>.card p:last-of-type{margin-bottom:24px}
+#service .grid>.card{display:flex;flex-direction:column}
+#service .grid>.card .button{margin-top:auto;align-self:flex-start}
+#service .grid>.card p:last-of-type{margin-bottom:24px}
 #case-studies .wrap>.button{margin-top:8px}
 .home-hero-title.is-character-revealing .home-hero-title-char{display:inline-block;opacity:0;transform:translateY(.14em);animation:home-hero-title-reveal .32s cubic-bezier(.22,.61,.36,1) var(--character-delay) forwards}
 .home-hero-title-unit{display:inline-block;white-space:nowrap}
