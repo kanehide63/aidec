@@ -7,7 +7,7 @@
   const send = document.querySelector('#contact-send');
   let confirmed = false, sending = false;
   const labels = {'contact-type':'お問い合わせ種別','contact-company':'会社名・屋号','contact-name':'お名前','contact-email':'メールアドレス','contact-phone':'電話番号','contact-message':'お問い合わせ内容'};
-  const type = {ai360:'AI企業診断360について',web:'Web制作について',support:'継続支援について',operations:'業務改善・システム導入支援について',googleweb:'Google・Web情報整備支援について',aibusiness:'AI導入・業務活用支援について',referral:'ご紹介特典について',other:'その他'}[new URLSearchParams(location.search).get('type')];
+  const type = {ai360:'AI企業診断360について',web:'Web制作について',webrepair:'既存ホームページの修正について',support:'継続支援について',operations:'業務改善・システム導入支援について',googleweb:'Google・Web情報整備支援について',aibusiness:'AI導入・業務活用支援について',referral:'ご紹介特典について',other:'その他'}[new URLSearchParams(location.search).get('type')];
   if (type) document.querySelector('#contact-type').value = type;
   const validate = () => {
     error.textContent = '';
