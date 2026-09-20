@@ -37,12 +37,28 @@
     confirmed = false; review.hidden = true; input.hidden = false;
     document.querySelector('#contact-confirm').focus();
   });
-  form.addEventListener('submit', event => {
-    if (!confirmed || sending) { event.preventDefault(); return; }
-    // Validation was completed before the confirmation panel; no AJAX success is fabricated.
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (!confirmed || sending) return;
+
     sending = true; send.disabled = true; document.querySelector('#contact-back').disabled = true;
     send.textContent = '送信中…';
-    document.querySelector('#contact-status').textContent = '送信先へ移動しています。通信が完了しない場合は、このページを再読み込みして確認してください。';
+    document.querySelector('#contact-status').textContent = '送信しています。';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (!response.ok) throw new Error(`Formspree responded with ${response.status}`);
+      window.location.assign('/contact/complete.html');
+    } catch (error) {
+      sending = false; send.disabled = false; document.querySelector('#contact-back').disabled = false;
+      send.textContent = 'この内容で送信する';
+      document.querySelector('#contact-status').textContent = '送信できませんでした。通信環境をご確認のうえ、時間をおいて再度お試しください。';
+    }
   });
   window.addEventListener('pageshow', event => {
     if (!event.persisted) return;
