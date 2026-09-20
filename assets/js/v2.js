@@ -21,40 +21,7 @@
   });
   nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', close));
   window.matchMedia('(min-width: 961px)').addEventListener('change', close);
-  const heroTitle = document.querySelector('.home-hero-title');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (heroTitle && !reduceMotion) {
-    const accessibleText = heroTitle.innerText.replace(/\n+/g, ' ');
-    let characterIndex = 0;
-    [...heroTitle.childNodes].forEach(node => {
-      if (node.nodeType !== Node.TEXT_NODE) return;
-      const fragment = document.createDocumentFragment();
-      const characters = [...node.textContent];
-      const createCharacter = character => {
-        const span = document.createElement('span');
-        span.className = 'home-hero-title-char';
-        span.setAttribute('aria-hidden', 'true');
-        span.style.setProperty('--character-delay', `${180 + characterIndex * 42}ms`);
-        span.textContent = character;
-        characterIndex += 1;
-        return span;
-      };
-      characters.forEach((character, index) => {
-        if (/[、。！？]/.test(characters[index + 1] || '')) {
-          const unit = document.createElement('span');
-          unit.className = 'home-hero-title-unit';
-          unit.append(createCharacter(character), createCharacter(characters[index + 1]));
-          fragment.appendChild(unit);
-          characters[index + 1] = '';
-        } else if (character) {
-          fragment.appendChild(createCharacter(character));
-        }
-      });
-      node.replaceWith(fragment);
-    });
-    heroTitle.setAttribute('aria-label', accessibleText);
-    heroTitle.classList.add('is-character-revealing');
-  }
   const sectionTitles = document.querySelectorAll('#about .section-head h2, #service .section-head h2, #approach .section-head h2, #case-studies .section-head h2');
   if (!reduceMotion) {
     sectionTitles.forEach(title => {
