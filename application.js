@@ -8,7 +8,8 @@
   const backToInput = document.getElementById('back-to-input');
   const submitButton = document.getElementById('submit-application');
   const submitError = document.getElementById('submit-error');
-  const fields = [...form.querySelectorAll('input:not([type="checkbox"]):not([type="hidden"]), textarea')];
+  let submitting = false;
+  const fields = [...form.querySelectorAll('input:not([type="checkbox"]):not([type="hidden"]):not([name="_gotcha"]), textarea')];
   const consent = document.getElementById('privacy-consent');
   const labels = {
     company: '会社名・屋号', name: 'ご担当者名', email: 'メールアドレス',
@@ -77,10 +78,44 @@
     window.aidecTrack?.('application_confirm_view');
   });
   backToInput.addEventListener('click', () => showStep('input'));
-  form.addEventListener('submit', () => {
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (submitting) return;
+
+    submitting = true;
     window.aidecTrack?.('application_submit_attempt');
     submitError.textContent = '';
     submitButton.disabled = true;
     submitButton.textContent = '送信しています…';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Formspree responded with ${response.status}`);
+      }
+
+      let navigated = false;
+      const navigateToComplete = () => {
+        if (navigated) return;
+        navigated = true;
+        window.location.assign('/complete.html');
+      };
+
+      window.aidecTrack?.('application_submit_success', {
+        event_callback: navigateToComplete,
+        event_timeout: 1000
+      });
+      window.setTimeout(navigateToComplete, 1000);
+    } catch (error) {
+      submitting = false;
+      submitButton.disabled = false;
+      submitButton.textContent = 'この内容で申し込む';
+      submitError.textContent = '送信できませんでした。通信環境をご確認のうえ、時間をおいて再度お試しください。';
+    }
   });
 })();

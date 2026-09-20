@@ -45,7 +45,6 @@
     });
   });
   if (document.body.dataset.page === 'application') window.aidecTrack('application_form_view');
-  if (document.body.dataset.page === 'application-complete') window.aidecTrack('application_submit_success');
 
   const heroTitle = document.querySelector('.hero-title-animated');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
