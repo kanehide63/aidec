@@ -46,14 +46,42 @@
     document.querySelector('#contact-status').textContent = '送信しています。';
 
     try {
+      const formData = new FormData(form);
+      const inquiryType = formData.get('お問い合わせ種別');
       const response = await fetch(form.action, {
         method: 'POST',
-        body: new FormData(form),
+        body: formData,
         headers: { Accept: 'application/json' }
       });
 
       if (!response.ok) throw new Error(`Formspree responded with ${response.status}`);
-      window.location.assign('/contact/complete.html');
+
+      let navigated = false;
+      const navigateToComplete = () => {
+        if (navigated) return;
+        navigated = true;
+        window.location.assign('/contact/complete.html');
+      };
+
+      if (inquiryType !== 'AI導入・業務活用支援について') {
+        navigateToComplete();
+        return;
+      }
+
+      if (typeof window.aidecTrack !== 'function') {
+        navigateToComplete();
+        return;
+      }
+
+      try {
+        window.aidecTrack('ai_business_inquiry_success', {
+          event_callback: navigateToComplete,
+          event_timeout: 1000
+        });
+        window.setTimeout(navigateToComplete, 1000);
+      } catch (trackingError) {
+        navigateToComplete();
+      }
     } catch (error) {
       sending = false; send.disabled = false; document.querySelector('#contact-back').disabled = false;
       send.textContent = 'この内容で送信する';
