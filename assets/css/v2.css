@@ -25,9 +25,6 @@
 #case-studies .case-grid{margin-bottom:24px}
 #strategy-report .price{white-space:nowrap}
 #strategy-report .price span{display:inline;margin-top:0}
-#about-services .card{display:flex;flex-direction:column}
-#about-services .card .button{margin-top:auto;align-self:flex-start}
-#about-services .card p:last-of-type{margin-bottom:24px}
 /* Second visual review: TOP-only alignment and restrained hero reveal. */
 #service .grid>.card{display:flex;flex-direction:column}
 #service .grid>.card .button{margin-top:auto;align-self:flex-start}
